@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RecommendationSystem</string>
+    <string name="title_home">主页</string>
+    <string name="title_my">我的</string>
+    <string name="title_shop_car">购物车</string>
+    <string name="title_goods">商品</string>
+</resources>
