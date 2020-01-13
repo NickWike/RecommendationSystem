@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--app主体布局-->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,14 +8,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.zh123.recommendationsystem.MainActivity">
 
-
+    <!--四个主要滑动的页面-->
     <android.support.v4.view.ViewPager
         android:id="@+id/pager_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </android.support.v4.view.ViewPager>
-
+    <!--底部导航栏-->
     <android.support.design.widget.BottomNavigationView
+        android:translationZ="10dp"
         android:id="@+id/navigation"
         android:layout_width="0dp"
         android:paddingTop="5dp"
@@ -22,7 +24,7 @@
         android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
         android:layout_marginBottom="2dp"
-        android:background="@drawable/shape_round_corner"
+        android:background="@drawable/shape_round_corner_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
