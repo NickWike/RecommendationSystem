@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--主页下猜您喜欢项的每个卡片 2020-01-13 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp"
-    android:layout_height="280dp"
+    android:layout_width="160dp"
+    android:layout_height="240dp"
     android:translationZ="10dp"
+    android:layout_marginBottom="@dimen/dp5"
     android:background="@drawable/shape_round_corner_white">
     <!--商品图片-->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="160dp"
         android:id="@+id/home_card_image"
+        android:scaleType="centerCrop"
         android:layout_marginHorizontal="@dimen/dp5"
         android:layout_marginTop="10dp"
         android:background="@mipmap/icon_image_null"/>
     <!--显示商品的标题名称-->
     <TextView
+        android:lines="1"
+        android:ellipsize="end"
         android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,19 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffb00"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical"
+    android:background="@color/colorBottomGray">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_my"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:paddingBottom="80dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:translationZ="18dp"
+            android:background="@drawable/shape_round_corner_white"
+            android:layout_width="match_parent"
+            android:layout_height="180dp">
 
-</android.support.constraint.ConstraintLayout>
+            <ImageView
+                android:layout_margin="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@mipmap/icon_menu"
+                android:id="@+id/id_my_user_menu"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <ImageView
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true"
+                android:padding="5dp"
+                android:id="@+id/id_my_user_head_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:backgroundTint="#a0f4ff"
+                android:background="@drawable/shape_round_corner_white"
+                android:src="@mipmap/icon_image_null"/>
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_above="@id/id_my_user_id"
+                android:id="@+id/id_my_user_name"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                android:text="用户名称"
+                android:layout_toEndOf="@id/id_my_user_head_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/id_my_user_head_image"
+                android:id="@+id/id_my_user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户ID: 123456"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/id_my_collection_item"
+            android:layout_marginTop="10dp"
+            android:translationZ="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_round_corner_white">
+
+            <ImageView
+                android:background="@mipmap/icon_collection"
+                android:id="@+id/id_my_collection_icon"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
+                android:text="收藏夹"
+                android:id="@+id/id_my_collection_text"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:translationZ="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/shape_round_corner_white">
+            <LinearLayout
+                android:id="@+id/id_my_money_item"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:id="@+id/id_my_money_icon"
+                    android:background="@mipmap/icon_money"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:text="钱包"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:id="@+id/id_my_money_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_my_friend_item"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:id="@+id/id_my_order"
+                    android:background="@mipmap/icon_my_order"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:text="订单"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:id="@+id/id_my_order_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/id_my_service_item"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:id="@+id/id_my_service_icon"
+                    android:background="@mipmap/icon_service"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:text="客服"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:id="@+id/id_my_service_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_my_shop_item"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:id="@+id/id_my_shop_icon"
+                    android:background="@mipmap/icon_shop"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:text="开店"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:id="@+id/id_my_shop_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/id_my_setting_item"
+            android:layout_marginTop="10dp"
+            android:translationZ="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_round_corner_white">
+
+            <ImageView
+                android:id="@+id/id_my_setting_icon"
+                android:background="@mipmap/icon_setting"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:text="设置"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:id="@+id/id_my_setting_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/id_logout"
+            android:layout_marginTop="10dp"
+            android:translationZ="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_round_corner_white">
+
+
+            <TextView
+                android:text="退出登录"
+                android:textColor="#e70000"
+                android:layout_marginStart="20dp"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

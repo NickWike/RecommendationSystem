@@ -1,7 +1,10 @@
 package com.example.zh123.recommendationsystem;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -12,10 +15,18 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+
+import com.example.zh123.recommendationsystem.entities.UserBean;
 import com.example.zh123.recommendationsystem.myfragments.GoodsFragment;
 import com.example.zh123.recommendationsystem.myfragments.HomeFragment;
 import com.example.zh123.recommendationsystem.myfragments.MyFragment;
 import com.example.zh123.recommendationsystem.myfragments.ShopCarFragment;
+import com.example.zh123.recommendationsystem.views.NoScrollViewPager;
 
 import java.lang.reflect.Field;
 
@@ -27,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
 
     // 整个主界面的ViewPager对象
-    ViewPager mainPager;
+    NoScrollViewPager mainPager;
     // 整个APP底部的导航栏对象
     BottomNavigationView navigation;
     // 底部导航栏的菜单选项对象
@@ -52,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                     return true;
                 case R.id.navigation_shop_car:
                     mainPager.setCurrentItem(2);
+                    mShopCarFragment.updateShopCarItems();
                     return true;
                 case R.id.navigation_my:
                     mainPager.setCurrentItem(3);
@@ -60,6 +72,14 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             return false;
         }
     };
+    // 用户数据
+    public UserBean mUserBean;
+
+    private HomeFragment mHomeFragment;
+    private GoodsFragment mGoodsFragment;
+    private ShopCarFragment mShopCarFragment;
+    private MyFragment mMyFragment;
+
 
     /**
      * 继承的 Activity 的方法重写
@@ -67,20 +87,33 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 获取传入的用户数据对象
+        Intent intent = getIntent();
+        mUserBean = (UserBean) intent.getSerializableExtra(UserBean.getClassName());
+        // 配置不让整个窗口根据输入法变形
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         // 将此Activity使用activity_main.xml文件进行布局
         setContentView(R.layout.activity_main);
         // 根据传入的id值找到底部的导航栏对象
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = findViewById(R.id.navigation);
         // 根据传入的id值只找到viewPager对象( 就是整个app 左右滑动的组件 )
-        mainPager = (ViewPager) findViewById(R.id.pager_main);
+        mainPager = findViewById(R.id.pager_main);
+        mainPager.setScrollable(false);
         // 因为BottomNavigationView item的数量默认超过3就会不进行均分 下面这个方法就是将四个item进行均分
         disableShiftMode(navigation);
+
         // 将窗口滑动组件设置一个监听器 (因为本类实现了ViewPager.OnPageChangeListener) 所以传入this即可
-        mainPager.addOnPageChangeListener(this);
+        // 暂时页面不需要滑动所以注释了
+        //mainPager.addOnPageChangeListener(this);
+
         // 将窗口滑动组件设置一个适配器,适配器的实现代码在下文
-        mainPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        mainPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), mUserBean));
         // 将底部的导航栏设置一个选择监听器
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+
     }
 
     /**
@@ -153,10 +186,25 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
      */
     class ViewPagerAdapter extends FragmentPagerAdapter {
         // 初始化一个数组用于存放ViewPager中所有页面的Fragment对象
-        private Fragment[] mFragments = new Fragment[]{new HomeFragment(), new GoodsFragment(), new ShopCarFragment(),new MyFragment()};
+        private Fragment[] mFragments;
+
         // 这是适配器的初始化方法只需调用父类的方法即可
-        public ViewPagerAdapter(FragmentManager fm) {
+        ViewPagerAdapter(FragmentManager fm,UserBean u) {
             super(fm);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(UserBean.getClassName(),u);
+
+            mHomeFragment = new HomeFragment();
+            mGoodsFragment = new GoodsFragment();
+            mShopCarFragment = new ShopCarFragment();
+            mMyFragment = new MyFragment();
+
+            mHomeFragment.setArguments(bundle);
+            mGoodsFragment.setArguments(bundle);
+            mShopCarFragment.setArguments(bundle);
+            mMyFragment.setArguments(bundle);
+
+            mFragments = new Fragment[]{mHomeFragment, mGoodsFragment, mShopCarFragment,mMyFragment};
         }
         // 此方法是重写父类的方法 此方法的作用是根据传入的坐标值返回其对应的fragment对象
         @Override
@@ -169,4 +217,52 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             return mFragments.length;
         }
     }
+
+// add 2020-1-6
+// 主要是为了解决EditText组件点击外部时 使得其失去焦点并隐藏软键盘
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (isShouldHideInput(v, ev)) {//点击editText控件外部
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    assert v != null;
+                    hideKeyboard(v.getWindowToken());
+                    if (editText != null) {
+                        editText.clearFocus();
+                    }
+                }
+            }
+            return super.dispatchTouchEvent(ev);
+        }
+        // 必不可少，否则所有的组件都不会有TouchEvent了
+        return getWindow().superDispatchTouchEvent(ev) || onTouchEvent(ev);
+    }
+
+    EditText editText = null;
+
+    public boolean isShouldHideInput(View v, MotionEvent event) {
+        if (v != null && (v instanceof EditText)) {
+            editText = (EditText) v;
+            int[] leftTop = {0, 0};
+            //获取输入框当前的location位置
+            v.getLocationInWindow(leftTop);
+            int left = leftTop[0];
+            int top = leftTop[1];
+            int bottom = top + v.getHeight();
+            int right = left + v.getWidth();
+            return !(event.getX() > left && event.getX() < right
+                    && event.getY() > top && event.getY() < bottom);
+        }
+        return false;
+    }
+    public void hideKeyboard(IBinder token) {
+        if (token != null) {
+            InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+// END
+
 }

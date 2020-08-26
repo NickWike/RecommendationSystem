@@ -1,19 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00ff00"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical"
+    android:id="@+id/id_goods_root_layout"
+    android:background="@color/colorBottomGray">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_goods"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:focusable="true"
+        android:paddingTop="20dp"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#00b7ff">
+        <ImageView
+            android:id="@+id/id_goods_search_im"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:translationZ="11dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/icon_search"/>
+        <EditText
+            android:singleLine="true"
+            android:id="@+id/id_goods_search_edit"
+            android:translationZ="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:background="@drawable/shape_round_corner_white"
+            android:layout_height="40dp" />
+    </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <com.example.zh123.recommendationsystem.views.GoodsNestedScrollLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+            <ImageView
+                android:scaleType="fitCenter"
+                android:id="@+id/id_advertising"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@mipmap/temp_advertising"/>
+
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="75dp">-->
+                <!--<ImageView-->
+                    <!--android:layout_marginVertical="@dimen/dp5"-->
+                    <!--android:background="@mipmap/i1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"/>-->
+                <!---->
+            <!--</LinearLayout>-->
+
+            <GridLayout
+                android:columnCount="4"
+                android:rowCount="2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+                <ImageView
+                    android:src="@mipmap/i1"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:src="@mipmap/i2"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:src="@mipmap/i3"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:src="@mipmap/i4"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="0"
+                    android:layout_column="3"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:src="@mipmap/i5"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:src="@mipmap/i6"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:src="@mipmap/i7"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:src="@mipmap/i8"
+                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="3"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"/>
+            </GridLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#00b7ff">
+            <Button
+                android:layout_alignParentEnd="true"
+                android:id="@+id/id_goods_shop_filter"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="筛选"/>
+            <Button
+                android:layout_centerVertical="true"
+                android:id="@+id/id_goods_order_by_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="价格排序"/>
+            <Button
+                android:layout_centerVertical="true"
+                android:id="@+id/id_goods_order_by_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="热度排序"
+                android:layout_toEndOf="@id/id_goods_order_by_price"/>
+            <Button
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/id_goods_order_by_score"
+                android:text="销量排序"
+                android:id="@+id/id_goods_order_by_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/goods_recycler"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="70dp"
+            android:paddingStart="15dp"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </com.example.zh123.recommendationsystem.views.GoodsNestedScrollLayout>
+
+</LinearLayout>

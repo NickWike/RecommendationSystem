@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="UserPasswordUsername">
+        <item name="android:singleLine">true</item>
+        <item name="android:digits">@string/char_set_letter_digital_punctuation</item>
+    </style>
+
+    <style name="payment_window_anim_style">
+        <item name="android:windowEnterAnimation">@anim/anim_payment_window_show</item>
+        <!-- 指定支付窗口显示的动画xml -->
+        <item name="android:windowExitAnimation">@anim/anim_payment_window_hidden</item>
+        <!-- 指定支付窗口消失的动画xml -->
+    </style>
 </resources>

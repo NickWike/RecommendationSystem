@@ -28,7 +28,8 @@
             <!--++++++++-->
         <!--+++++++++++++++++++++-->
 
-
     <!--+++-->
+    
+    <string name="char_set_letter_digital_punctuation">&#038;&#060;=&#062;!"#$%'()*+,-./:;?@[\]^_`{|}~abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</string>
 
 </resources>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/id_product_image"
+            android:layout_width="match_parent"
+            android:layout_height="410dp"
+            android:background="#e1e1e1"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginVertical="@dimen/dp5">
+
+            <TextView
+                android:id="@+id/price_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="￥"
+                android:textColor="#ff3c00" />
+
+            <TextView
+                android:id="@+id/id_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/price_unit"
+                android:text="0.00"
+                android:textColor="#ff3c00"
+
+                android:textSize="26sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/id_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp5"
+            android:text="阿姆斯特朗回旋导弹房间爱离开饭店卡拉和反馈浪费很多老卡号老客服回答来付款单号老客服回答来快点发啊"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginVertical="@dimen/dp5"
+            android:background="#f2f5f5" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="@dimen/dp5">
+
+            <TextView
+                android:id="@+id/text_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:text="发货: "
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/id_product_area_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@id/text_delivery"
+                android:text="重庆市"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_shipping_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@id/id_product_area_name"
+                android:text="运费: "
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/id_postage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/text_shipping_fee"
+                android:text="0.00"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/text_month_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/id_month_sales"
+                android:text="月销量 "
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/id_month_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="1000"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginVertical="@dimen/dp5"
+            android:background="#f2f5f5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="@dimen/dp5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/id_good_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="好评(1000)"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/id_general_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="中评(1000)"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/id_poor_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="差评(1000)"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginVertical="@dimen/dp5"
+            android:background="#f2f5f5" />
+
+        <ImageView
+            android:id="@+id/id_image_description1"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="@mipmap/icon_description_default" />
+
+        <ImageView
+            android:id="@+id/id_image_description2"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="@mipmap/icon_description_default" />
+
+        <ImageView
+            android:id="@+id/id_image_description3"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="@mipmap/icon_description_default" />
+
+        <ImageView
+            android:id="@+id/id_image_description4"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="@mipmap/icon_description_default" />
+    </LinearLayout>
+
+</ScrollView>

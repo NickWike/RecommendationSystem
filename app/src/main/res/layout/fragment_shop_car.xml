@@ -1,19 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0073ff"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/colorBottomGray">
 
-    <TextView
-        android:id="@+id/message"
+    <RelativeLayout
+        android:id="@+id/shop_car_top_bar"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#00b7ff">
+        <TextView
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购物车"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/id_shop_car_management"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="管理"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/shop_car_top_bar"
+        android:layout_above="@id/shop_car_bottom_bar"
+        android:id="@+id/id_shop_car_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:background="@color/colorWhite"
+        android:id="@+id/shop_car_bottom_bar"
+        android:layout_marginBottom="65dp"
+        android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_shop_car"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        <CheckBox
+            android:text="全选"
+            android:id="@+id/id_shop_car_checked_all"
+            android:buttonTint="#ff7300"
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:visibility="invisible"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/id_delete_item"
+            android:text="删除"
+            android:layout_margin="@dimen/dp5"
+            android:paddingVertical="@dimen/dp5"
+            android:paddingHorizontal="20dp"
+            android:textColor="#FF0000"
+            android:background="@drawable/shop_roumd_corner_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+
+       <RelativeLayout
+           android:visibility="visible"
+           android:id="@+id/close_account_area"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_alignParentEnd="true"
+               android:id="@+id/id_close_account"
+               android:text="结算"
+               android:layout_margin="@dimen/dp5"
+               android:paddingVertical="@dimen/dp5"
+               android:paddingHorizontal="20dp"
+               android:textColor="#cfffffff"
+               android:background="@drawable/shape_rounde_corner_account"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="20sp"/>
+           <TextView
+               android:layout_centerVertical="true"
+               android:layout_toStartOf="@id/id_total_price"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="16sp"
+               android:text="合计:"/>
+           <TextView
+               android:layout_toStartOf="@id/id_close_account"
+               android:layout_centerVertical="true"
+               android:id="@+id/id_total_price"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#ff7300"
+               android:text="￥0.00"
+               />
+       </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

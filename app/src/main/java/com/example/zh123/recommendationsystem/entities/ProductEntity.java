@@ -1,4 +1,4 @@
-package com.example.zh123.recommendationsystem.beans;
+package com.example.zh123.recommendationsystem.entities;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -8,14 +8,16 @@ import java.text.DecimalFormat;
  */
 
 // 作为一个商品的主体
-public class ShopBean {
+public class ProductEntity {
     // 商品的价格
-    private BigDecimal shopPrice = new BigDecimal(0.00);
+    private BigDecimal goodsPrice = new BigDecimal(0.00);
     // 商品价格的字符串形式
-    private String shopPriceString="";
+    private String goodsPriceString ="";
     // 商品的名称
-    private String shopTitle = "";
+    private String goodsTitle = "";
     // 商品的图片地址
+    private String goodsImage = "";
+    // 商店的图片地址
     private String shopImage = "";
     // 商品的评论数
     private int comments = 0;
@@ -31,42 +33,44 @@ public class ShopBean {
     private int monthlySales=0;
     // 商品好评率
     private int startLevel=3;
+    // 被加在购物车内的数量
+    private int chooseCount = 0;
     // 设置商品价格的显示格式
-    private DecimalFormat df = new DecimalFormat(".00");
+    private DecimalFormat df = new DecimalFormat("0.00");
 
 
 
-    public ShopBean(String title){this.shopTitle = title;}
-    public ShopBean(String title, BigDecimal price){
-        this.shopTitle = title;
-        this.shopPrice = price;
-        this.shopPriceString = df.format(shopPrice);
+    public ProductEntity(String title){this.goodsTitle = title;}
+    public ProductEntity(String title, BigDecimal price){
+        this.goodsTitle = title;
+        this.goodsPrice = price;
+        this.goodsPriceString = df.format(goodsPrice);
     }
-    public ShopBean(String title, BigDecimal price, String url){
-        this.shopTitle = title;
-        this.shopPrice = price;
+    public ProductEntity(String title, BigDecimal price, String url){
+        this.goodsTitle = title;
+        this.goodsPrice = price;
         this.shopImage = url;
     }
 
-    public BigDecimal getShopPrice() {
-        return shopPrice;
+    public BigDecimal getGoodsPrice() {
+        return goodsPrice;
     }
 
-    public void setShopPrice(BigDecimal shopPrice) {
-        this.shopPrice = shopPrice;
-        this.shopPriceString = df.format(shopPrice);
+    public void setGoodsPrice(BigDecimal goodsPrice) {
+        this.goodsPrice = goodsPrice;
+        this.goodsPriceString = df.format(goodsPrice);
     }
 
-    public String getShopPriceString(){
-        return "¥"+shopPriceString;
+    public String getGoodsPriceString(){
+        return "¥"+ goodsPriceString;
     }
 
-    public String getShopTitle() {
-        return shopTitle;
+    public String getGoodsTitle() {
+        return goodsTitle;
     }
 
-    public void setShopTitle(String shopTitle) {
-        this.shopTitle = shopTitle;
+    public void setGoodsTitle(String goodsTitle) {
+        this.goodsTitle = goodsTitle;
     }
 
     public String getShopImage() {
@@ -131,5 +135,21 @@ public class ShopBean {
 
     public void setStartLevel(int startLevel) {
         this.startLevel = startLevel;
+    }
+
+    public String getGoodsImage() {
+        return goodsImage;
+    }
+
+    public void setGoodsImage(String goodsImage) {
+        this.goodsImage = goodsImage;
+    }
+
+    public int getChooseCount() {
+        return chooseCount;
+    }
+
+    public void setChooseCount(int chooseCount) {
+        this.chooseCount = chooseCount >= 1 ? chooseCount:1;
     }
 }

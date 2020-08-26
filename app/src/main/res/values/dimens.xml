@@ -3,8 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!--主页顶部导航栏图标的大小-->
-    <dimen name="home_guide_bar_image_width">40dp</dimen>
-    <dimen name="home_guide_bar_image_height">40dp</dimen>
+    <dimen name="home_guide_bar_image_width">35dp</dimen>
+    <dimen name="home_guide_bar_image_height">35dp</dimen>
     <!--+++++++++++++++++++-->
 
     <dimen name="dp5">5dp</dimen>

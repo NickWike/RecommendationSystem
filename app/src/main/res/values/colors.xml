@@ -7,4 +7,6 @@
     <color name="colorBottomGray">#dedede</color>
     <color name="colorArrowBlue">#0099da</color>
     <color name="comment_purple">#AD00CC</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
 </resources>

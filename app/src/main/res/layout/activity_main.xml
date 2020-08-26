@@ -6,14 +6,16 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:layout_alignParentTop="true"
     tools:context="com.example.zh123.recommendationsystem.MainActivity">
 
     <!--四个主要滑动的页面-->
-    <android.support.v4.view.ViewPager
+    <com.example.zh123.recommendationsystem.views.NoScrollViewPager
         android:id="@+id/pager_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v4.view.ViewPager>
+        android:layout_height="wrap_content">
+    </com.example.zh123.recommendationsystem.views.NoScrollViewPager>
     <!--底部导航栏-->
     <android.support.design.widget.BottomNavigationView
         android:translationZ="10dp"

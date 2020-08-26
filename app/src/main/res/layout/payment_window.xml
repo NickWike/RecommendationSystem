@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_payment_root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:background="@drawable/shape_round_corner_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/id_cancel"
+                android:backgroundTint="#8b8b8b"
+                android:background="@mipmap/icon_cancel"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+            <TextView
+                android:layout_centerInParent="true"
+                android:text="订单支付"
+                android:textSize="22sp"
+                android:textColor="@color/colorBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/id_question"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:background="@mipmap/icon_question"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp">
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:id="@+id/label_unit_rmb"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                android:text="￥"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginBottom="-10dp"
+                android:padding="0dp"
+                android:layout_toEndOf="@id/label_unit_rmb"
+                android:layout_alignParentBottom="true"
+                android:text="0.00"
+                android:textColor="@color/colorBlack"
+                android:textSize="48sp"
+                android:id="@+id/id_payment_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="200dp"
+            android:backgroundTint="#13a9ff"
+            android:background="@drawable/shape_round_corner_white"
+            android:text="确认支付"
+            android:textSize="24dp"
+            android:textColor="#ccffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</RelativeLayout>

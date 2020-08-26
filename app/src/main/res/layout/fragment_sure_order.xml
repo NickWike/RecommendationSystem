@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/colorBottomGray"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/id_sure_order_top_bar"
+        android:background="@color/colorArrowBlue"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <ImageView
+            android:id="@+id/id_back"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/icon_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/id_bar_title"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp"
+            android:text="确认订单"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/id_scrollview"
+        android:layout_below="@id/id_sure_order_top_bar"
+        android:layout_above="@id/id_sure_order_bottom_bar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/id_order_info_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/id_main_shipping_card"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/shape_round_corner_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_margin="@dimen/dp5"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/positioning_icon"
+                    android:background="@mipmap/icon_positioning"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/id_receiver_name"
+                    android:layout_toEndOf="@id/positioning_icon"
+                    android:layout_alignParentTop="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="胡图图"/>
+                <TextView
+                    android:id="@+id/id_receiver_mobile"
+                    android:textSize="16sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_toEndOf="@id/id_receiver_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13100000000"/>
+                <TextView
+                    android:layout_below="@id/id_receiver_name"
+                    android:id="@+id/id_receiver_address2"
+                    android:layout_toEndOf="@id/positioning_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="重庆重庆市渝中区翻斗大街翻斗花园二号楼1001室"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:visibility="invisible"
+        android:id="@+id/id_address_info_bar"
+        android:backgroundTint="#d7fffb"
+        android:background="@drawable/shape_round_corner_white"
+        android:layout_below="@id/id_sure_order_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/id_positioning_icon"
+            android:layout_centerVertical="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/icon_positioning"/>
+        <TextView
+            android:id="@+id/id_receiver_address"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/id_positioning_icon"
+            android:text="重庆重庆市渝中区翻斗大街翻斗花园二号楼1001室"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/id_sure_order_bottom_bar"
+        android:background="@color/colorArrowBlue"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_toStartOf="@id/id_label_total"
+            android:layout_centerVertical="true"
+            android:id="@+id/id_total_count"
+            android:text="共两件"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toStartOf="@id/id_total_price"
+            android:layout_centerVertical="true"
+            android:id="@+id/id_label_total"
+            android:text="合计:"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginEnd="15dp"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:id="@+id/id_total_price"
+            android:layout_toStartOf="@id/id_commit_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrice"
+            android:text="￥: 0.00"/>
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:background="@drawable/shape_rounde_corner_account"
+            android:id="@+id/id_commit_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#cbffffff"
+            android:text="提交订单"/>
+
+    </RelativeLayout>
+</RelativeLayout>
+
+    <!--<FrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="200dp">-->
+    <!--<ImageView-->
+    <!--android:layout_gravity="center_horizontal|bottom"-->
+    <!--android:background="@drawable/round"-->
+    <!--android:layout_width="800dp"-->
+    <!--android:layout_height="800dp" />-->
+    <!--</FrameLayout>-->

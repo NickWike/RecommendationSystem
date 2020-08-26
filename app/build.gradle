@@ -40,4 +40,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.azoft.carousellayoutmanager:carousel:1.2.4'
+    // 图片加载库
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    // http 请求库
+    implementation 'com.squareup.okhttp3:okhttp:4.4.0'
+    // json 解析库
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
